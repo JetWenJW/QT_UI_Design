@@ -10,11 +10,8 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
@@ -26,46 +23,36 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QLabel *label;
     QPushButton *pushButton;
+    QPushButton *pushButton_2;
     QMenuBar *menubar;
-    QMenu *menuHello;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(800, 480);
-        QFont font;
-        font.setFamily(QString::fromUtf8("Yrsa"));
-        font.setPointSize(19);
-        font.setBold(true);
-        font.setWeight(75);
-        MainWindow->setFont(font);
+        MainWindow->resize(800, 600);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        label = new QLabel(centralwidget);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(0, 0, 81, 31));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(280, 190, 150, 50));
-        QFont font1;
-        font1.setPointSize(18);
-        pushButton->setFont(font1);
+        pushButton->setGeometry(QRect(90, 170, 150, 50));
+        QFont font;
+        font.setPointSize(30);
+        pushButton->setFont(font);
+        pushButton_2 = new QPushButton(centralwidget);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setGeometry(QRect(370, 170, 151, 51));
+        pushButton_2->setFont(font);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 42));
-        menuHello = new QMenu(menubar);
-        menuHello->setObjectName(QString::fromUtf8("menuHello"));
+        menubar->setGeometry(QRect(0, 0, 800, 28));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
-
-        menubar->addAction(menuHello->menuAction());
 
         retranslateUi(MainWindow);
 
@@ -75,9 +62,8 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
-        label->setText(QApplication::translate("MainWindow", "I'm Jet", nullptr));
-        pushButton->setText(QApplication::translate("MainWindow", "A Good button", nullptr));
-        menuHello->setTitle(QApplication::translate("MainWindow", "Hello", nullptr));
+        pushButton->setText(QApplication::translate("MainWindow", "Button", nullptr));
+        pushButton_2->setText(QApplication::translate("MainWindow", "Praise", nullptr));
     } // retranslateUi
 
 };
