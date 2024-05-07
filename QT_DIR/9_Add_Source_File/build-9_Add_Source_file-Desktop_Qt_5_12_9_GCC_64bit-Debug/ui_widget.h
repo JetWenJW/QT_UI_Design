@@ -26,6 +26,7 @@ public:
         if (Widget->objectName().isEmpty())
             Widget->setObjectName(QString::fromUtf8("Widget"));
         Widget->resize(800, 600);
+        Widget->setStyleSheet(QString::fromUtf8(""));
         label = new QLabel(Widget);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(150, 70, 421, 431));

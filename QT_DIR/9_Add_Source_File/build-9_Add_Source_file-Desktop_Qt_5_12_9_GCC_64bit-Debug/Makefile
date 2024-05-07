@@ -54,12 +54,15 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../9_Add_Source_file/main.cpp \
 		../9_Add_Source_file/widget.cpp qrc_icon.cpp \
+		qrc_res.cpp \
 		moc_widget.cpp
 OBJECTS       = main.o \
 		widget.o \
 		qrc_icon.o \
+		qrc_res.o \
 		moc_widget.o
-DIST          = /opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/features/spec_pre.prf \
+DIST          = ../9_Add_Source_file/style.qss \
+		/opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/common/unix.conf \
 		/opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/common/linux.conf \
 		/opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/common/sanitize.conf \
@@ -216,6 +219,7 @@ DIST          = /opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/features/qt_config.prf \
 		/opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/features/spec_post.prf \
+		../9_Add_Source_file/.qmake.stash \
 		/opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/features/toolchain.prf \
 		/opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/features/default_pre.prf \
@@ -405,6 +409,7 @@ Makefile: ../9_Add_Source_file/9_Add_Source_file.pro /opt/Qt5.12.9/5.12.9/gcc_64
 		/opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/features/qt_config.prf \
 		/opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/features/toolchain.prf \
 		/opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/features/default_pre.prf \
@@ -425,7 +430,8 @@ Makefile: ../9_Add_Source_file/9_Add_Source_file.pro /opt/Qt5.12.9/5.12.9/gcc_64
 		/opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/features/yacc.prf \
 		/opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/features/lex.prf \
 		../9_Add_Source_file/9_Add_Source_file.pro \
-		../9_Add_Source_file/icon.qrc
+		../9_Add_Source_file/icon.qrc \
+		../9_Add_Source_file/res.qrc
 	$(QMAKE) -o Makefile ../9_Add_Source_file/9_Add_Source_file.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
 /opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/features/spec_pre.prf:
 /opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/common/unix.conf:
@@ -584,6 +590,7 @@ Makefile: ../9_Add_Source_file/9_Add_Source_file.pro /opt/Qt5.12.9/5.12.9/gcc_64
 /opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/features/qt_config.prf:
 /opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/linux-g++/qmake.conf:
 /opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/features/exclusive_builds.prf:
 /opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/features/toolchain.prf:
 /opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/features/default_pre.prf:
@@ -605,6 +612,7 @@ Makefile: ../9_Add_Source_file/9_Add_Source_file.pro /opt/Qt5.12.9/5.12.9/gcc_64
 /opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/features/lex.prf:
 ../9_Add_Source_file/9_Add_Source_file.pro:
 ../9_Add_Source_file/icon.qrc:
+../9_Add_Source_file/res.qrc:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../9_Add_Source_file/9_Add_Source_file.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
 
@@ -619,7 +627,7 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../9_Add_Source_file/icon.qrc $(DISTDIR)/
+	$(COPY_FILE) --parents ../9_Add_Source_file/icon.qrc ../9_Add_Source_file/res.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /opt/Qt5.12.9/5.12.9/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../9_Add_Source_file/widget.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../9_Add_Source_file/main.cpp ../9_Add_Source_file/widget.cpp $(DISTDIR)/
@@ -647,13 +655,17 @@ check: first
 
 benchmark: first
 
-compiler_rcc_make_all: qrc_icon.cpp
+compiler_rcc_make_all: qrc_icon.cpp qrc_res.cpp
 compiler_rcc_clean:
-	-$(DEL_FILE) qrc_icon.cpp
+	-$(DEL_FILE) qrc_icon.cpp qrc_res.cpp
 qrc_icon.cpp: ../9_Add_Source_file/icon.qrc \
 		/opt/Qt5.12.9/5.12.9/gcc_64/bin/rcc \
 		../9_Add_Source_file/images.png
 	/opt/Qt5.12.9/5.12.9/gcc_64/bin/rcc -name icon ../9_Add_Source_file/icon.qrc -o qrc_icon.cpp
+
+qrc_res.cpp: ../9_Add_Source_file/res.qrc \
+		/opt/Qt5.12.9/5.12.9/gcc_64/bin/rcc
+	/opt/Qt5.12.9/5.12.9/gcc_64/bin/rcc -name res ../9_Add_Source_file/res.qrc -o qrc_res.cpp
 
 compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
@@ -1010,11 +1022,25 @@ widget.o: ../9_Add_Source_file/widget.cpp ../9_Add_Source_file/widget.h \
 		/opt/Qt5.12.9/5.12.9/gcc_64/include/QtCore/qfiledevice.h \
 		/opt/Qt5.12.9/5.12.9/gcc_64/include/QtGui/qvector2d.h \
 		/opt/Qt5.12.9/5.12.9/gcc_64/include/QtGui/qtouchdevice.h \
-		ui_widget.h
+		ui_widget.h \
+		/opt/Qt5.12.9/5.12.9/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.9/5.12.9/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.9/5.12.9/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.9/5.12.9/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.9/5.12.9/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.9/5.12.9/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.9/5.12.9/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.9/5.12.9/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.9/5.12.9/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.9/5.12.9/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.9/5.12.9/gcc_64/include/QtWidgets/qframe.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o widget.o ../9_Add_Source_file/widget.cpp
 
 qrc_icon.o: qrc_icon.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_icon.o qrc_icon.cpp
+
+qrc_res.o: qrc_res.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_res.o qrc_res.cpp
 
 moc_widget.o: moc_widget.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_widget.o moc_widget.cpp
