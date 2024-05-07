@@ -18,20 +18,20 @@ Widget::~Widget()
 
 void Widget::on_pushButton_clicked()
 {
-    qDebug() << " Clicked " <<endl;
+    qDebug()<<" Clicked~"<<endl;
 }
 
 void Widget::on_pushButton_pressed()
 {
-    qDebug() << " Pressed~ " <<endl;
+    qDebug()<<" Pressed~"<<endl;
 }
 
 void Widget::on_pushButton_released()
 {
-    qDebug() << " Release~ " <<endl;
+    qDebug()<<" Release~"<<endl;
 }
 
 void Widget::on_pushButton_toggled(bool checked)
 {
-    qDebug() << " Toggled~ " <<endl;
+    qDebug()<<" Toggled~"<< checked <<endl;
 }

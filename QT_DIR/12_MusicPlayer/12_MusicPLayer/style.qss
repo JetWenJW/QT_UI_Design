@@ -1,0 +1,6 @@
+<!DOCTYPE RCC>
+<RCC version="1.0"/>
+QPushButton#PushButton_2{ border-image:url(:/icon/play-button.png) }
+QPushButton_2:hover{ border-image: url(:/icon/play.png)}
+QPushButton_2:checked{ border-image: url(:/icon/pause.png)}
+QPushButton_2:checked:hover{ border-image: url(:/icon/stop.png)}

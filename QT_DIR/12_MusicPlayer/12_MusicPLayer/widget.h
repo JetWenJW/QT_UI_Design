@@ -2,6 +2,8 @@
 #define WIDGET_H
 
 #include <QWidget>
+#include <QPushButton>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -14,6 +16,15 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
+
+private slots:
+    void on_pushButton_clicked();
+
+    void on_pushButton_pressed();
+
+    void on_pushButton_released();
+
+    void on_pushButton_toggled(bool checked);
 
 private:
     Ui::Widget *ui;
