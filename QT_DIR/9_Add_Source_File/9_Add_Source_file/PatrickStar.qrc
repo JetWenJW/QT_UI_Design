@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/PatrickStar">
+        <file>Patrick_Star.svg.png</file>
+    </qresource>
+</RCC>
