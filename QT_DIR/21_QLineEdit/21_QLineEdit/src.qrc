@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icon/sign-in.png</file>
+        <file>icon/chevron.png</file>
+        <file>icon/icons8-登入-50.png</file>
+    </qresource>
+</RCC>
