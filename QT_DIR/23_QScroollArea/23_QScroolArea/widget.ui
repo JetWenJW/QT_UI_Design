@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Widget</class>
+ <widget class="QWidget" name="Widget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Widget</string>
+  </property>
+  <widget class="QScrollArea" name="scrollArea">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>10</y>
+     <width>650</width>
+     <height>480</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>650</width>
+     <height>480</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>650</width>
+     <height>480</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QScrollBar:vertical
+{
+		width: 20px;
+		background-color: white;
+		border-radius: 30px;
+}
+
+QScrollBar::handle:vertical
+{
+		background-color: rgb(154, 153, 150);
+		border-radius: 30px;
+}
+
+QScrollBar::add-line:vertical
+{
+		width: 0px;
+		height: 0px;
+}
+
+QScrollBar::sub-line:vertical
+{
+		width: 0px;
+		height: 0px;
+}
+
+QScrollBar:horizontal
+{
+		width: 20px;
+		background-color: white;
+		
+
+}
+
+QScrollBar::handle:horizontal
+{
+		background-color: rgb(154, 153, 150);
+		border::radius: 15px;
+
+}
+
+QScrollBar::add-line:horizontal
+{
+		width: 0px;
+		height: 0px;
+}
+
+QScrollBar::sub-line:horizontal
+{
+		width: 0px;
+		height: 0px;
+}
+</string>
+   </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents_3">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>-322</y>
+      <width>1000</width>
+      <height>800</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>1000</width>
+      <height>800</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>1000</width>
+      <height>800</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget
+{
+		background-color: gray;
+}</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
