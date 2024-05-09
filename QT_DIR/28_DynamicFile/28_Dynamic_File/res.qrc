@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icon/pen-tool.png</file>
+        <file>icon/pen_press.png</file>
+        <file>icon/return.png</file>
+        <file>icon/previous.png</file>
+    </qresource>
+</RCC>
