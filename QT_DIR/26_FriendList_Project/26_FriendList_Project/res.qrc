@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icon/person.png</file>
+        <file>icon/injury.png</file>
+        <file>icon/head.png</file>
+        <file>icon/man-hair.png</file>
+    </qresource>
+</RCC>
