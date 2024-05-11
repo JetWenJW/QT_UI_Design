@@ -29,7 +29,7 @@
 }</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>550</x>
@@ -61,6 +61,38 @@
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QWidget" name="ColorWidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>310</y>
+     <width>120</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget
+{
+		background-color: blue;
+}</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="opacitywidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>430</y>
+     <width>120</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget
+{
+		background-color: black;
+}</string>
+   </property>
   </widget>
  </widget>
  <resources/>
