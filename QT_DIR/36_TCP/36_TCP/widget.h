@@ -28,5 +28,7 @@ private slots:
     void receiveMessages();
     void mstatChanged(QAbstractSocket::SocketState);
 
+    void on_pushButton_3_clicked();
+    void on_pushButton_clicked();
 };
 #endif // WIDGET_H
