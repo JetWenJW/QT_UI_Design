@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
@@ -31,6 +32,7 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QLineEdit *lineEdit;
     QPushButton *pushButton_3;
+    QButtonGroup *buttonGroup;
 
     void setupUi(QWidget *Widget)
     {
@@ -47,12 +49,20 @@ public:
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         pushButton = new QPushButton(Widget);
+        buttonGroup = new QButtonGroup(Widget);
+        buttonGroup->setObjectName(QString::fromUtf8("buttonGroup"));
+        buttonGroup->addButton(pushButton);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setCheckable(true);
+        pushButton->setChecked(false);
 
         horizontalLayout->addWidget(pushButton);
 
         pushButton_2 = new QPushButton(Widget);
+        buttonGroup->addButton(pushButton_2);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setCheckable(true);
+        pushButton_2->setChecked(true);
 
         horizontalLayout->addWidget(pushButton_2);
 

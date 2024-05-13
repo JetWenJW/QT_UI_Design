@@ -7,10 +7,13 @@ Widget::Widget(QWidget *parent)
     , ui(new Ui::Widget)
 {
     ui->setupUi(this);
+    this->setWindowTitle("User Port:");
+    ui->pushButton_2->setEnabled(false);
+
     tcpSocket = new QTcpSocket(this);
     connect(tcpSocket, SIGNAL(readyRead()), this, SLOT(receiveMessages()));
     connect(tcpSocket, SIGNAL(stateChanged(QAbstractSocket::SocketState)),
-            this, SLOT(receiveMessages()));
+            this, SLOT(mstateChanged(QAbstractSocket::SocketState)));
 
 }
 
@@ -30,9 +33,13 @@ void Widget::mstateChanged(QAbstractSocket::SocketState state)
     {
     case QAbstractSocket::UnconnectedState:
         ui->textBrowser->append("Disconnected");
+        ui->pushButton->setEnabled(true);
+        ui->pushButton_2->setEnabled(true);
         break;
     case QAbstractSocket::ConnectedState:
         ui->textBrowser->append("Connected");
+        ui->pushButton->setEnabled(false);
+        ui->pushButton_2->setEnabled(true);
         break;
 
     default:
@@ -56,7 +63,7 @@ void Widget::on_pushButton_3_clicked()
 void Widget::on_pushButton_clicked()
 {
     /* Connect to Server Port & IP address */
-    tcpSocket->connectToHost(QHostAddress("192.168.1.59"), 10000);
+    tcpSocket->connectToHost(QHostAddress("172.18.0.1"), 10000);
 }
 
 void Widget::on_pushButton_2_clicked()

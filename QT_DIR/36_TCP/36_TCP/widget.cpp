@@ -7,6 +7,7 @@ Widget::Widget(QWidget *parent)
 {
     ui->setupUi(this);
     tcpserver = new QTcpServer(this);
+    this->setWindowTitle("Server Port:");
     connect(tcpserver, SIGNAL(newconnection()), this, SLOT(mNewConnection()));
 }
 
@@ -76,5 +77,11 @@ void Widget::on_pushButton_3_clicked()
 void Widget::on_pushButton_clicked()
 {
     /* Listen Port & IP address */
-    tcpserver->listen(QHostAddress("192.168.1.59"), 10000);
+    tcpserver->listen(QHostAddress("172.18.0.1"), 10000);
+}
+
+void Widget::on_pushButton_2_clicked()
+{
+    /* Stop Listen & Disconnect */
+    tcpserver->close();
 }

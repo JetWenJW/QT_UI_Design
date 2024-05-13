@@ -48,11 +48,15 @@ public:
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         pushButton = new QPushButton(Widget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setCheckable(false);
+        pushButton->setChecked(false);
 
         horizontalLayout->addWidget(pushButton);
 
         pushButton_2 = new QPushButton(Widget);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setCheckable(false);
+        pushButton_2->setChecked(false);
 
         horizontalLayout->addWidget(pushButton_2);
 
